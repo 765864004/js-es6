@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+            需求
+                定义学生类,让学生类继承人类
+        */
+
+        //定义人类
+        class Person{
+            //构造函数
+            constructor(name,age){
+                this.name = name
+                this.age = age
+            }
+            //方法
+            eat(){
+                console.log('吃饭')
+            }
+        }
+
+        //定义学生类继承人类
+        class Student extends Person{
+            //写一些特有的方法
+            study(){
+                console.log('学习')
+            }
+        }
+
+        //创建学生对象
+        const stu = new Student('张三',23)
+        stu.eat()
+        stu.study()
+
+        /* 
+            注意点
+                需要满足 is a 的关系
+                只要不是所有的子类都具有的属性和方法,就不要放在父类中
+        */
+    </script>
+</body>
+
+</html>

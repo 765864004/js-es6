@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //定义一个手机类
+        class Phone{
+            //打电话
+            call(){
+                console.log('打电话')
+            }
+        }
+
+        //定义新一代的手机:继承手机类,功能更大强大,可以在打电话的同时进行视频(相当于对打电话方法做了一个增强)
+        class NewPhone extends Phone{
+            //重写打电话的方法
+            call(){
+                //直接拷贝父类代码有弊端:不利于后期维护
+                //console.log('打电话')
+
+                //使用super调用父类的方法
+                super.call() //super代表父类
+                console.log('同时视频')
+
+                this.message()//this代表本类,可以调用本类的方法
+            }
+
+            message(){
+                console.log('发短信')
+            }
+        }
+
+        //创建新手机对象
+        const p = new NewPhone()
+        p.call()
+    </script>
+</body>
+</html>

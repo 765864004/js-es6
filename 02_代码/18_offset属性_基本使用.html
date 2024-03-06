@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .father{
+            position: relative;
+
+            width: 200px;
+            height: 200px;
+            background: lightblue;
+            
+            margin: 100px; /* 偏移一下,跟body区分 */
+
+            border: 10px solid green;
+        }
+
+        .son{
+            width: 100px;
+            height: 100px;
+            background: pink;
+        }
+    </style>
+</head>
+<body>
+    <div class="father">
+        <div class="son"></div>
+    </div>
+    <script>
+        /* 先获取father相关属性 */
+        var father = document.querySelector('.father')
+        //获取垂直方向上的偏移值
+        console.log(father.offsetTop)
+        //获取水平方向上的偏移值
+        console.log(father.offsetLeft)
+        //获取父元素的高度
+        console.log(father.offsetHeight)
+        //获取父元素的宽度
+        console.log(father.offsetWidth)
+        //获取父元素的定位父元素
+        console.log(father.offsetParent)
+
+        /* 先获取son相关属性 */
+        var son = document.querySelector('.son')
+        //获取垂直方向上的偏移值
+        console.log(son.offsetTop)
+        //获取水平方向上的偏移值
+        console.log(son.offsetLeft)
+        //获取子元素的高度
+        console.log(son.offsetHeight)
+        //获取子元素的宽度
+        console.log(son.offsetWidth)
+        //获取子元素的定位父元素
+        console.log(son.offsetParent)//返回的是带定位的父元素,如果父元素都没有定位,返回body
+
+        //parentElement和parentNode返回的都是父元素
+        console.log(son.parentElement)
+    </script>
+</body>
+</html>

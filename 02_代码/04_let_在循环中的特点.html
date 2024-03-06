@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //模拟讲解闭包的时候,定时打印问题
+
+        //正常情况,没有使用定时器打印  ---打印1,2,3
+        for (var i = 1; i <= 3; i++) {
+            console.log(i)
+        }
+
+        //使用定时器打印,出问题 ---打印 4,4,4
+        //原因:因为i定义在全局,执行定时器之前,i的值已经被循环修改为4,执行定时器的时候,打印的就是3个4
+        for (var i = 1; i <= 3; i++) {
+            setTimeout(function () {
+                console.log(i)
+            }, 1000)
+        }
+
+        //解决方式一:使用立即执行函数(每循环一次,拿到i的值之后,立即执行定时器)
+        for (var i = 1; i <= 3; i++) {
+            (function (index) {
+                setTimeout(function () {
+                    console.log(index)
+                }, 1000)
+            })(i)
+        }
+
+        //解决方式二:使用let定义i  
+        //因为,let有块级作用域,每次循环生成的定时器都自己的i变量,互不影响
+        for (let i = 1; i <= 3; i++) {
+            setTimeout(function () {
+                console.log(i)
+            }, 1000)
+        }
+    </script>
+</body>
+
+</html>

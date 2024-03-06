@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //1,let主要用于声明变量,声明的变量不在window对象中
+        var a = 10
+        let a1 = 20
+        console.log(window)//可以看到a在window中,a1并没有
+        console.log(window.a1)//undefined
+
+        //2,let有块级作用域
+        if(true){
+            var b = 20
+            let b1 = 30
+        }
+        console.log(b)
+        //console.log(b1)//b1 is not defined  b1有块级作用域,出了{}就无法使用
+
+        //3,let声明的变量,在一个域中不能重复声明
+        var c = 100
+        var c = 100
+        let c1 = 200
+        //let c1 = 200 // Identifier 'c1' has already been declared
+
+        //3,let可以防止循环变量变成全局变量
+        for(var i=1;i<=10;i++){
+            console.log(i)
+        }
+        console.log(i)
+
+        for(let j=1;j<=10;j++){
+            console.log(j)
+        }
+        //console.log(j)//Uncaught ReferenceError: j is not defined
+
+        //4,let声明的变量没有变量提升
+        //变量提升:在预编译阶段,js会优先处理变量和函数的声明,再执行变量和函数的赋值(仅限于var定义的变量)
+        console.log(d)//undefined
+        var d = 20
+
+        //console.log(d1) //Cannot access 'd1' before initialization
+        let d1 = 200
+        
+    </script>
+</body>
+</html>

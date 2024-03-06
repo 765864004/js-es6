@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 200px;
+            height: 200px;
+            background: lightblue;
+            
+            overflow: auto;/* 如果内容超出会有滚动条,宽高不包含滚动条 */
+
+            border: 10px solid pink;
+
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        新中地新中地新中地新中地新中地新中地新中地新中地新中地新中地新中地
+        新中地新中地新中地新中地新中地新中地新中地新中地新中地新中地新中地
+        新中地新中地新中地新中地新中地新中地新中地新中地新中地新中地新中地
+        新中地新中地新中地新中地新中地新中地新中地新中地新中地新中地新中地
+        新中地新中地新中地新中地新中地新中地新中地新中地新中地新中地新中地
+    </div>
+    <script>
+        //获取元素可视系列属性
+        var div = document.querySelector('div')
+
+        console.log(div.clientTop)
+        console.log(div.clientLeft)
+        console.log(div.clientWidth)
+        console.log(div.clientHeight)
+
+        //获取元素滚动相关的属性
+        console.log(div.scrollHeight)//332  其实是内容区域的高度
+        console.log(div.scrollWidth)//203
+
+        //获取元素滚动的距离(现在打印的是页面一加载完成之后滚动的距离,初始值都为0,必须要通过监听滚动事件才能看到变化)
+        console.log(div.scrollTop) //0
+        console.log(div.scrollLeft) //0
+
+        //监听div的滚动事件
+        div.addEventListener('scroll',function(){
+            console.log(this.scrollTop)//垂直方向上的滚动
+            console.log(this.scrollLeft)//水平方向上的滚动,没有水平滚动,始终为0
+        })
+    </script>
+</body>
+</html>

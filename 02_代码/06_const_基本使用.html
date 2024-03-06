@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 
+            const和let相同点
+                1.const也有块级作用
+                2,在一个域中不能重复声明
+                3,没有变量提升
+
+            跟let的不同点
+                const 声明一个只读的常量，一旦声明，常量的值就不能改变。
+        */
+       //1,const声明的是一个常量,值是不能修改的
+       const a = 10
+       //a = 20 //: Assignment to constant variable
+       console.log(a) 
+
+       //2,const声明的变量必须要赋值,否则无法使用
+       //const b   //Missing initializer in const declaratio
+       //console.log(b)
+
+       //3,对于对象类型,const声明的变量,虽然值是不能修改的,但是里面内容是可以改变
+       const arr = [1,2,3]
+       //arr = [3,4,5] // Assignment to constant variable.字面量方式的本质是创建了新的数组,把数组的地址赋给arr
+       arr[1] = 10
+       console.log(arr)
+
+       const stu = {name:'张三',age:23}
+        //stu = {name:'李四',age:23} 报错 
+        stu.name = '李四'
+        console.log(stu)
+    </script>
+</body>
+</html>

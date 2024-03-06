@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 
+            ES6中,静态都是使用static修饰
+        */
+        //定义人类
+        class Person {
+            //定义静态属性
+            static contry = '中国'
+
+            //构造函数
+            constructor(name, age) {
+                this.name = name
+                this.age = age
+            }
+
+            //方法
+            eat() {
+                console.log('吃饭')
+            }
+
+            //定义静态的方法
+            static sleep(){
+                console.log('睡觉')
+            }
+        }
+
+        //创建对象
+        const p1 = new Person('张三', 23)
+        console.log(p1)
+
+        //访问静态的属性
+        console.log(p1.contry)//undefined
+        console.log(Person.contry) //只能通过类名调用
+
+        //访问静态的方法
+        Person.sleep() //只能通过类名调用
+        //p1.sleep() //报错
+        
+    </script>
+</body>
+
+</html>

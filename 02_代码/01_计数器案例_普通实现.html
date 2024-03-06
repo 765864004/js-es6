@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /* 练习二:实现一个累加器,每过1秒钟自增一次(并在控制台上打印1秒,2秒,3秒...),到达10秒钟后停止累加,并打印计时器结束 */
+
+        //初始化秒数
+        var second = 0
+
+        //定义打印秒数的方法
+        function print(){
+            second++
+
+            console.log(second+'秒')
+
+            //10秒后停止
+            if(second==10){
+                clearInterval(timer)
+                console.log('计数器结束!')
+            }
+
+        }
+
+        //启动定时器
+        var timer = setInterval(print,300)
+
+        /* 
+            弊端
+                在初始化秒数的时候,使用的是全局变量second
+                全局变量不好控制,可以在任意的地方进行读写,很有可能被一些不相干的函数修改
+                全局变量占用的生命周期过长,一般是在页面关闭的时候才会被销毁
+
+            改进
+                将初始化秒数放到print函数里面(会不会出现问题)
+        */
+
+    </script>
+</body>
+</html>

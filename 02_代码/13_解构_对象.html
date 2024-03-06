@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const stu = {
+            name:'张三',
+            age:23,
+            //ES5中方法的定义
+            study:function(){
+                console.log('学习')
+            },
+            //ES6中方法可以这么写:省略掉了:function
+            exam(){
+                console.log('考试')
+            }
+        }
+
+        //解构
+        const {name,age,study,exam} = stu
+
+        console.log(name)
+        console.log(study)
+        console.log(exam)
+
+        exam()
+
+        //解构练习
+        const stu2 = {
+            name:'王八',
+            age:28,
+            scores:[90,100,89]
+        }
+
+        //:可以用于起别名,防止跟上面的变量名冲突
+        const {name:username,age:stu_age,scores:[num1,num2,num3]} = stu2
+
+        console.log(username,stu_age,num1,num2,num3)
+    </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /* 练习二:实现一个累加器,每过1秒钟自增一次(并在控制台上打印1秒,2秒,3秒...),到达10秒钟后停止累加,并打印计时器结束 */
+
+
+        //定义打印秒数的方法
+        function print() {
+
+            //初始化秒数
+            var second = 0
+
+            //将下面累加的代码使用counterFn函数包裹起来,返回出去
+            function counterFn() {
+                second++
+
+                console.log(second + '秒')
+
+                //10秒后停止
+                if (second == 10) {
+                    clearInterval(timer)
+                    console.log('计数器结束!')
+                }
+            }
+
+            return counterFn
+        }
+
+        //启动定时器
+        //先调用print函数,拿到里面返回的counterFn函数
+        var fn = print()
+        var timer = setInterval(fn, 300)
+
+        /*
+            问题
+                将初始化秒数放到print函数里面,会导致每一次调用print方法,second就会被初始化为0
+
+            改进
+                将print方法分为初始化和累加两个部分,把累加的部分用另外一个函数counterFn包裹起来,返回出去
+                将来我这个定时器只需要调用我返回出去的counterFn函数
+
+            闭包作用体现
+                1,在print函数的外部访问print函数内部的second变量
+                2,通过fn函数间接调用counterFn函数,虽然print()函数已经调用完毕,但是fn仍然可以访问print函数内部
+                  的second变量,这就典型的作用域延长案例
+
+            什么时候需要使用闭包
+                当我们需要重复使用一个对象,但是又想保护这个对象不被其他代码污染
+                
+        */
+
+    </script>
+</body>
+
+</html>

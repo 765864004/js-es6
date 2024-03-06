@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const arr = [12,13,14,15,16]
+
+        //1,普通for循环
+
+        //2,forEach
+        arr.forEach(function(item,index){
+            console.log(item,index)
+        })
+
+        //for...of 只能获取数组的元素,获取不到数组的索引
+        //语法: for(const  元素 of 数组名) {语句体}
+        for(const item of arr){
+            console.log(item)
+            console.log(arr.indexOf(item)) //可以通过这种方式间接获取元素的索引(可能会存在问题)
+        }
+
+        //for...in 只能获取数组的索引,获取不到数组元素
+        //语法: for(const  索引 in 数组名) {语句体}
+        for(const index in arr){
+            console.log(index)
+            console.log(arr[index]) //只能通过索引来获取元素
+        }
+
+        //for...in 主要用于遍历对象
+        const stu = {name:'张三',age:23,height:180}
+        for(const key in stu){
+            console.log(key) //获取的是对象的属性名
+            console.log(stu[key]) //只能通过[]的方式来获取属性值
+        }
+
+        //遍历获取里面的cities
+        var array = [
+            {name:"河南省",cities:["郑州","洛阳","开封"]},
+            {name:"辽宁省",cities:["沈阳","大连","鞍山"]},
+            {name:"山东省",cities:["青岛","济南","烟台"]},
+        ];
+
+        //方式一:forEach
+        array.forEach(function(item){
+            console.log(item.cities)
+        })
+
+        //方式二:for...of
+        for(const item of array){
+            console.log(item.cities)
+        }
+
+        //方式三:for...of(好处:可以在遍历的同时直接解构)
+        for(const {name,cities} of array){
+            console.log(cities)
+        }
+
+
+    </script>
+</body>
+</html>

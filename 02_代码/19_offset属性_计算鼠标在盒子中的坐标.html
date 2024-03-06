@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        .box{
+            width: 300px;
+            height: 300px;
+            background: lightblue;
+
+            margin: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+
+    </div>
+    <script>
+        /* 
+            步骤:
+                1,获取box盒子对象,添加鼠标移动事件mousemove
+                2,在事件中通过鼠标事件对象获取鼠标在文档中的坐标
+                3,减去box在body中的偏移值
+                4,展示鼠标的坐标
+        */
+
+        //获取box盒子对象
+        var box = document.querySelector('.box')
+
+        //添加鼠标移动事件
+        box.addEventListener('mousemove',function(e){
+            //获取鼠标在文档中的坐标
+            console.log(e.pageX,e.pageY)
+
+            //获取盒子在body中的偏移值
+            console.log(this.offsetLeft,this.offsetTop)
+
+            //相减
+            const x = e.pageX - this.offsetLeft
+            const y = e.pageY - this.offsetTop
+
+            //展示鼠标坐标
+            this.innerHTML = `x坐标:${x},y坐标:${y}`
+        })
+    </script>
+</body>
+</html>
